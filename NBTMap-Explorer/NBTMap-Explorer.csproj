@@ -9,7 +9,6 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Assets\Icons\app-icon.ico</ApplicationIcon>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
