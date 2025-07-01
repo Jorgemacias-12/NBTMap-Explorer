@@ -15,7 +15,7 @@
     </Window.DataContext>
     
     <WindowChrome.WindowChrome>
-        <WindowChrome  ResizeBorderThickness="8" CaptionHeight="40" CornerRadius="20" GlassFrameThickness="0" />
+        <WindowChrome  ResizeBorderThickness="8" CaptionHeight="40" CornerRadius="10" GlassFrameThickness="0" />
     </WindowChrome.WindowChrome>
 
     <Border Background="White" BorderBrush="#FFCCCCCC" BorderThickness="1">

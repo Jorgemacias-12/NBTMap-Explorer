@@ -41,10 +41,6 @@ namespace NBTMap_Explorer.Views
         private const int SC_RESTORE = 0xF120;
         private const int WM_GETMINMAXINFO = 0x0024;
         private const int MONITOR_DEFAULTTONEAREST = 2;
-        private const int WM_NCHITTEST = 0x0084;
-        private const int HTMAXBUTTON = 9;
-
-        private Button? _lastHoveredButton = null;
 
         public string MaxRestoreIcon => WindowState == WindowState.Maximized ? "" : "";
 
