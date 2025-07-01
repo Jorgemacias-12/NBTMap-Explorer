@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using NBTMap_Explorer.Views;
 using System.Windows;
 
 namespace NBTMap_Explorer
@@ -15,7 +16,7 @@ namespace NBTMap_Explorer
 
             ServiceProvider = services.BuildServiceProvider();
 
-            var window = new MainWindow();
+            var window = new BaseWindow();
 
             window.Show();
         }

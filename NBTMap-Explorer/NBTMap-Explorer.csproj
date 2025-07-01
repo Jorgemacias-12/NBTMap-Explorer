@@ -8,14 +8,32 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Assets\Icons\app-icon.ico</ApplicationIcon>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Page Remove="Resources\Theme.Dark.xaml" />
+    <Page Remove="Resources\Theme.Light.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Icons\app-icon.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Assets\Images\" />
     <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Themes\" />
     <Folder Include="Strategies\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\Theme.Dark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Include="Resources\Theme.Light.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
