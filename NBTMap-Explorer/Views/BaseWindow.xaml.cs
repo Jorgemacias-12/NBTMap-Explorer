@@ -1,9 +1,6 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Interop;
-using System.Windows.Media;
 
 namespace NBTMap_Explorer.Views
 {
@@ -35,11 +32,13 @@ namespace NBTMap_Explorer.Views
         public struct RECT { public int left; public int top; public int right; public int bottom; }
 
         private const int WM_SYSCOMMAND = 0x0112;
+        private const int WM_GETMINMAXINFO = 0x0024;
+
         private const int SC_CLOSE = 0xF060;
         private const int SC_MINIMIZE = 0xF020;
         private const int SC_MAXIMIZE = 0xF030;
         private const int SC_RESTORE = 0xF120;
-        private const int WM_GETMINMAXINFO = 0x0024;
+
         private const int MONITOR_DEFAULTTONEAREST = 2;
 
         public string MaxRestoreIcon => WindowState == WindowState.Maximized ? "" : "";
@@ -52,9 +51,11 @@ namespace NBTMap_Explorer.Views
         protected override void OnSourceInitialized(EventArgs e)
         {
             base.OnSourceInitialized(e);
+
             var helper = new WindowInteropHelper(this);
             var source = HwndSource.FromHwnd(helper.Handle);
             source.AddHook(WndProc);
+
         }
 
         private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)

@@ -9,6 +9,7 @@
         WindowStyle="None" Title="BaseWindow"
         Height="450" 
         Width="800"
+        Background="Transparent"
         ResizeMode="CanResize" Cursor="">
     <Window.DataContext>
         <vm:BaseWindowViewModel />
@@ -18,7 +19,7 @@
         <WindowChrome  ResizeBorderThickness="8" CaptionHeight="40" CornerRadius="10" GlassFrameThickness="0" />
     </WindowChrome.WindowChrome>
 
-    <Border Background="White" BorderBrush="#FFCCCCCC" BorderThickness="1">
+    <Border Background="Transparent" BorderBrush="#FFCCCCCC" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
