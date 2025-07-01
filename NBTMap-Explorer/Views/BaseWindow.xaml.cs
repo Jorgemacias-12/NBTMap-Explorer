@@ -1,6 +1,8 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.ComponentModel;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
+using System.Windows.Threading;
 
 namespace NBTMap_Explorer.Views
 {
@@ -55,7 +57,6 @@ namespace NBTMap_Explorer.Views
             var helper = new WindowInteropHelper(this);
             var source = HwndSource.FromHwnd(helper.Handle);
             source.AddHook(WndProc);
-
         }
 
         private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
@@ -89,20 +90,27 @@ namespace NBTMap_Explorer.Views
             Marshal.StructureToPtr(mmi, lParam, true);
         }
 
-        private void Min_Click(object sender, RoutedEventArgs e)
+        private void SendWindowCommand(int command)
         {
-            SendMessage(new WindowInteropHelper(this).Handle, WM_SYSCOMMAND, (IntPtr)SC_MINIMIZE, IntPtr.Zero);
+            var hwnd = new WindowInteropHelper(this).Handle;
+
+            SendMessage(hwnd, WM_SYSCOMMAND, (IntPtr)command, IntPtr.Zero);
+        }
+
+        private async void Min_Click(object sender, RoutedEventArgs e)
+        {
+            SendWindowCommand(SC_MINIMIZE);
         }
 
         private void Max_Click(object sender, RoutedEventArgs e)
         {
             var command = WindowState == WindowState.Maximized ? SC_RESTORE : SC_MAXIMIZE;
-            SendMessage(new WindowInteropHelper(this).Handle, WM_SYSCOMMAND, (IntPtr)command, IntPtr.Zero);
+            SendWindowCommand(command);
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            SendMessage(new WindowInteropHelper(this).Handle, WM_SYSCOMMAND, (IntPtr)SC_CLOSE, IntPtr.Zero);
+            SendWindowCommand(SC_CLOSE);
         }
     }
 }
