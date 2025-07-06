@@ -7,11 +7,12 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Colors.xaml"/>
+                <ResourceDictionary Source="Resources/ProgressBarStyles.xaml"/>
                 <ResourceDictionary Source="Resources/ButtonStyles.xaml"/>
                 <ResourceDictionary Source="/Resources/Theme.Dark.xaml" />
                 <ResourceDictionary Source="/Resources/Theme.Light.xaml" />
                 <ResourceDictionary Source="Resources/TextStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        </ResourceDictionary> 
     </Application.Resources>
 </Application>

@@ -13,11 +13,13 @@
 
   <ItemGroup>
     <None Remove="Assets\Fonts\Monocraft.ttc" />
+    <None Remove="Assets\Icons\app-icon.png" />
     <None Remove="Assets\Images\splash_screen_pattern_dark.png" />
     <None Remove="Assets\Images\splash_screen_pattern_light.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Page Remove="Resources\ProgressBarStyles.xaml" />
     <Page Remove="Resources\Theme.Dark.xaml" />
     <Page Remove="Resources\Theme.Light.xaml" />
   </ItemGroup>
@@ -33,8 +35,10 @@
 
   <ItemGroup>
     <Resource Include="Assets\Fonts\Monocraft.ttc" />
+    <Resource Include="Assets\Icons\app-icon.png" />
     <Resource Include="Assets\Images\splash_screen_pattern_dark.png" />
     <Resource Include="Assets\Images\splash_screen_pattern_light.png" />
+    <Resource Include="Resources\ProgressBarStyles.xaml" />
     <Resource Include="Resources\Theme.Dark.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Resource>
