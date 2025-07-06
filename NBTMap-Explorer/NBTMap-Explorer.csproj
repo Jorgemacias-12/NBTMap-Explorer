@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <None Remove="Assets\Fonts\Monocraft.ttc" />
+    <None Remove="Assets\Images\splash_screen_pattern_dark.png" />
+    <None Remove="Assets\Images\splash_screen_pattern_light.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,13 +27,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\Images\" />
     <Folder Include="Models\" />
     <Folder Include="Strategies\" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Assets\Fonts\Monocraft.ttc" />
+    <Resource Include="Assets\Images\splash_screen_pattern_dark.png" />
+    <Resource Include="Assets\Images\splash_screen_pattern_light.png" />
     <Resource Include="Resources\Theme.Dark.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Resource>

@@ -1,0 +1,41 @@
+﻿<Window x:Class="NBTMap_Explorer.Views.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NBTMap_Explorer.Views"
+        mc:Ignorable="d"
+        Title="NBTMap Explorer - Cargando..."
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Width="1280"
+        Height="720"
+        ResizeMode="NoResize"
+>
+    <Window.Background>
+        <ImageBrush ImageSource="/Assets/Images/splash_screen_pattern_light.png" TileMode="Tile" ViewportUnits="Absolute" Viewport="0, 0, 64, 64"/>
+    </Window.Background>
+
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Click="Close_Click" Foreground="White" Grid.Column="1" Content="" Style="{StaticResource CloseButton}" ToolTip="Cerrar" />
+        </Grid>
+
+        <Border Grid.Row="1" CornerRadius="20" Padding="10">
+            <Grid>
+                <TextBlock>Hola mundo</TextBlock>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
