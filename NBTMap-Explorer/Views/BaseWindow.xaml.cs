@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using NBTMap_Explorer.Helpers;
+using NBTMap_Explorer.ViewModels;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
@@ -43,11 +45,23 @@ namespace NBTMap_Explorer.Views
 
         private const int MONITOR_DEFAULTTONEAREST = 2;
 
-        public string MaxRestoreIcon => WindowState == WindowState.Maximized ? "" : "";
-
         public BaseWindow()
         {
             InitializeComponent();
+
+            ConfigWindow();
+        }
+
+        private void ConfigWindow()
+        {
+            StateChanged += (s, e) =>
+            {
+                if (DataContext is not null &&
+                    DataContext is BaseWindowViewModel viewModel)
+                {
+                    viewModel.WindowState = WindowState;
+                }
+            };
         }
 
         protected override void OnSourceInitialized(EventArgs e)
@@ -97,7 +111,7 @@ namespace NBTMap_Explorer.Views
             SendMessage(hwnd, WM_SYSCOMMAND, (IntPtr)command, IntPtr.Zero);
         }
 
-        private async void Min_Click(object sender, RoutedEventArgs e)
+        private void Min_Click(object sender, RoutedEventArgs e)
         {
             SendWindowCommand(SC_MINIMIZE);
         }
@@ -111,6 +125,17 @@ namespace NBTMap_Explorer.Views
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             SendWindowCommand(SC_CLOSE);
+        }
+
+        bool isPreseed = false;
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            isPreseed = !isPreseed;
+
+            string themeToApply = isPreseed ? "Dark" : "Light";
+
+            SystemTheme.ApplyTheme(themeToApply);
         }
     }
 }

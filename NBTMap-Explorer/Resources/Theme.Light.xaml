@@ -31,4 +31,5 @@
 	<SolidColorBrush x:Key="StatusErrorBrush" Color="{StaticResource Error400}"/>
 	<SolidColorBrush x:Key="StatusErrorBackgroundBrush" Color="{StaticResource Error100}"/>
 
+    <SolidColorBrush x:Key="WindowBorderBrush" Color="#FF615379" />
 </ResourceDictionary>

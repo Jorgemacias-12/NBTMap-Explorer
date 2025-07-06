@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="WindowTextBlock" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Monocraft"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+    </Style>
+
+    <Style x:Key="MainTitle" TargetType="TextBlock" BasedOn="{StaticResource WindowTextBlock}">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="#FF333333"/>
+    </Style>
+</ResourceDictionary>
