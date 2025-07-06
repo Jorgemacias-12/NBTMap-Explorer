@@ -1,4 +1,5 @@
 ﻿using NBTMap_Explorer.Views;
+using System.Diagnostics;
 using System.Windows;
 using SplashScreen = NBTMap_Explorer.Views.SplashScreen;
 
@@ -11,9 +12,26 @@ namespace NBTMap_Explorer
             base.OnStartup(e);
 
 
-            SplashScreen splashScreen = new SplashScreen();
+            //SplashScreen splashScreen = new SplashScreen();
             
-            splashScreen.Show();
+            //splashScreen.Show();
+
+            if (Debugger.IsAttached)
+            {
+                BaseWindow baseWindow = new BaseWindow
+                {
+                };
+                baseWindow.Show();  
+            } 
+            else
+            {
+                SplashScreen splashScreen = new SplashScreen
+                {
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                    Topmost = true
+                };
+                splashScreen.Show();
+            }
         }
     }
 }
