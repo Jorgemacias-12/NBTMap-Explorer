@@ -5,31 +5,48 @@
 		<ResourceDictionary Source="Colors.xaml"/>
 	</ResourceDictionary.MergedDictionaries>
 
-	<SolidColorBrush x:Key="BackgroundPrimaryBrush" Color="{StaticResource DarkestBackground}"/>
-	<SolidColorBrush x:Key="BackgroundSecondaryBrush" Color="{StaticResource Gray950}"/>
+    <SolidColorBrush x:Key="BackgroundPrimaryBrush" Color="{StaticResource DarkComponents700}"/>
+    <SolidColorBrush x:Key="BackgroundSecondaryBrush" Color="{StaticResource DarkComponents500}"/>
 
-	<SolidColorBrush x:Key="SurfacePrimaryBrush" Color="{StaticResource Gray950}"/>
-	<SolidColorBrush x:Key="SurfaceSecondaryBrush" Color="{StaticResource Gray900}"/>
-	<SolidColorBrush x:Key="SurfaceTertiaryBrush" Color="{StaticResource Gray800}"/>
+    <SolidColorBrush x:Key="SurfacePrimaryBrush" Color="{StaticResource DarkComponents600}"/>
+    <SolidColorBrush x:Key="SurfaceSecondaryBrush" Color="{StaticResource DarkComponents500}"/>
+    <SolidColorBrush x:Key="SurfaceTertiaryBrush" Color="{StaticResource DarkComponents400}"/>
 
-	<SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource Gray100}"/>
-	<SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource Gray400}"/>
-	<SolidColorBrush x:Key="TextDisabledBrush" Color="{StaticResource Gray600}"/>
-	<SolidColorBrush x:Key="TextOnBrandBrush" Color="{StaticResource White}"/>
-	<SolidColorBrush x:Key="TextOnAccentBrush" Color="{StaticResource Gray950}"/>
-	<SolidColorBrush x:Key="BorderPrimaryBrush" Color="{StaticResource Gray800}"/>
-	<SolidColorBrush x:Key="BorderSecondaryBrush" Color="{StaticResource Gray850}"/>
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource Text100}"/>
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextMuted600}"/>
+    <SolidColorBrush x:Key="TextDisabledBrush" Color="{StaticResource TextMuted500}"/>
+    <SolidColorBrush x:Key="TextOnBrandBrush" Color="{StaticResource Text100}"/>
+    <SolidColorBrush x:Key="TextOnAccentBrush" Color="{StaticResource Accent800}"/>
 
-	<SolidColorBrush x:Key="ActionPrimaryBrush" Color="{StaticResource Principal400}"/>
-	<SolidColorBrush x:Key="ActionPrimaryHoverBrush" Color="{StaticResource Principal300}"/>
-	<SolidColorBrush x:Key="ActionPrimaryActiveBrush" Color="{StaticResource Principal200}"/>
-	<SolidColorBrush x:Key="ActionPrimaryDisabledBrush" Color="{StaticResource Gray800}"/>
+    <SolidColorBrush x:Key="BorderPrimaryBrush" Color="{StaticResource Dark400}"/>
+    <SolidColorBrush x:Key="BorderSecondaryBrush" Color="{StaticResource Dark500}"/>
 
-	<SolidColorBrush x:Key="AccentBrush" Color="{StaticResource Accent400}"/>
-	<SolidColorBrush x:Key="AccentHoverBrush" Color="{StaticResource Accent300}"/>
+    <SolidColorBrush x:Key="ButtonPrimaryBrush" Color="{StaticResource Principal900}"/>
+    <SolidColorBrush x:Key="ButtonPrimaryHoverBrush" Color="{StaticResource Principal600}"/>
+    <SolidColorBrush x:Key="ButtonPrimaryActiveBrush" Color="{StaticResource Principal950}"/>
+    <SolidColorBrush x:Key="ButtonPrimaryDisabledBrush" Color="{StaticResource Gray400}"/>
+    <SolidColorBrush x:Key="ButtonPrimaryaActiveBorderBrush" Color="{StaticResource Secondary300}"/>
 
-	<SolidColorBrush x:Key="StatusErrorBrush" Color="{StaticResource Error400}"/>
-	<SolidColorBrush x:Key="StatusErrorBackgroundBrush" Color="{StaticResource Error950}"/>
+    <SolidColorBrush x:Key="SidebarItemPrimaryBrush" Color="{StaticResource DarkComponents700}"/>
+    <SolidColorBrush x:Key="SidebarItemPrimaryHoverBrush" Color="{StaticResource GreenBlue400}"/>
+    <SolidColorBrush x:Key="SidebarItemPrimaryActiveBrush" Color="{StaticResource Secondary400}"/>
+    <SolidColorBrush x:Key="SidebarItemPrimaryDisabledBrush" Color="{StaticResource Gray400}"/>
+    <SolidColorBrush x:Key="SidebarItemPrimaryaActiveBorderBrush" Color="{StaticResource Text400}"/>
 
-    <SolidColorBrush x:Key="WindowBorderBrush" Color="#FFCCCCCC" />
+    <SolidColorBrush x:Key="ActionPrimaryBrush" Color="{StaticResource Principal700}"/>
+    <SolidColorBrush x:Key="ActionPrimaryHoverBrush" Color="{StaticResource Principal800}"/>
+    <SolidColorBrush x:Key="ActionPrimaryActiveBrush" Color="{StaticResource Principal900}"/>
+    <SolidColorBrush x:Key="ActionPrimaryDisabledBrush" Color="{StaticResource Gray200}"/>
+
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource Accent400}"/>
+    <SolidColorBrush x:Key="AccentHoverBrush" Color="{StaticResource Accent500}"/>
+
+    <SolidColorBrush x:Key="StatusErrorBrush" Color="{StaticResource Error400}"/>
+    <SolidColorBrush x:Key="StatusErrorBackgroundBrush" Color="{StaticResource Error100}"/>
+    <SolidColorBrush x:Key="StatusWarningBrush" Color="{StaticResource Warning400}"/>
+    <SolidColorBrush x:Key="StatusWarningBackgroundBrush" Color="{StaticResource Warning100}"/>
+    <SolidColorBrush x:Key="WindowBorderBrush" Color="#FF615379" />
+
+    <BitmapImage x:Key="SplashScreenImage" UriSource="/Assets/Images/splash_screen_pattern_dark.png"/>
+
 </ResourceDictionary>

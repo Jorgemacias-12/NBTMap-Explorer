@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NBTMap_Explorer.Views"
+        xmlns:vm="clr-namespace:NBTMap_Explorer.ViewModels"
         mc:Ignorable="d"
         Title="NBTMap Explorer - Cargando..."
         WindowStyle="None"
@@ -13,8 +14,9 @@
         ResizeMode="NoResize"
         FontFamily="Monocraft"
 >
+
     <Window.Background>
-        <ImageBrush ImageSource="/Assets/Images/splash_screen_pattern_light.png" TileMode="Tile" ViewportUnits="Absolute" Viewport="0, 0, 64, 64"/>
+        <ImageBrush ImageSource="{DynamicResource SplashScreenImage}" TileMode="Tile" ViewportUnits="Absolute" Viewport="0, 0, 64, 64"/>
     </Window.Background>
 
 
@@ -33,23 +35,30 @@
             <Button Click="Close_Click" Foreground="White" Grid.Column="1" Content="" Style="{StaticResource CloseButton}" ToolTip="Cerrar" />
         </Grid>
 
-        <Border Background="White" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" CornerRadius="15" Padding="10">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10">
+        <Border Background="{DynamicResource BackgroundPrimaryBrush}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="450" Width="450" Grid.Row="1" CornerRadius="30" Padding="25,30,25,10">
+            <Border.RenderTransform>
+                <TranslateTransform Y="-20"/>
+            </Border.RenderTransform>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,14,0,5">
                 <Image Source="/Assets/Icons/app-icon.png"
-               Width="80" Height="80" Margin="0,0,0,10"/>
+               Width="100" Height="100" Margin="0,0,0,17"/>
 
-                <TextBlock TextAlignment="Center" Text="NBTMap Explorer" FontSize="28" FontWeight="Bold" Margin="0,5"/>
-                <TextBlock TextAlignment="Center" Text="Versión 0.0.1" FontSize="12" Foreground="Gray" Margin="0,2"/>
+                <TextBlock TextAlignment="Center" FontSize="33.18" Foreground="{DynamicResource TextPrimaryBrush}" FontWeight="Bold" Margin="0,0,0,3"><Run Text="NBTMap Explore"/><Run Language="es-mx" Text="r"/></TextBlock>
+                <TextBlock TextAlignment="Center" Text="Versión 0.0.1" FontSize="16" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,0, 0, 34"/>
 
                 <ProgressBar
                      Style="{StaticResource RoundedProgressBar}"
                      Value="0"
-                     Width="300"
+                     Width="400"
                      Height="10"
                      Foreground="#2ECC71"
-                     Margin="0,15,0,10" />
+                     Margin="0,0,0,7" />
 
-                <TextBlock TextAlignment="Center" Text="© 2025 NBTMap Explorer" FontSize="10" Foreground="Gray" Margin="0,20,0,2"/>
+                <TextBlock  TextAlignment="Center" Text="0%" FontSize="16" Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,5,0,5"/>
+                <TextBlock  TextAlignment="Center" Text="Ready for exploration" FontSize="13.33" Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,0,0,30"/>
+                <TextBlock TextAlignment="Center" Text="© 2025 NBTMap Explorer" FontSize="13.33" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,20,0,10"/>
+                <TextBlock TextAlignment="Center" Text="Minecraft Map Exploration Tool" FontSize="13.33" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,0,0,5"/>
+                <Button Height="20" Click="Button_Click"/>
             </StackPanel>
         </Border>
     </Grid>
