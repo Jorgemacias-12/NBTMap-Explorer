@@ -12,17 +12,13 @@ namespace NBTMap_Explorer
             base.OnStartup(e);
 
 
-            SplashScreen splashScreen = new SplashScreen();
-            
-            splashScreen.Show();
-            /*
             if (Debugger.IsAttached)
             {
                 BaseWindow baseWindow = new BaseWindow
                 {
                 };
-                baseWindow.Show();  
-            } 
+                baseWindow.Show();
+            }
             else
             {
                 SplashScreen splashScreen = new SplashScreen
@@ -31,7 +27,7 @@ namespace NBTMap_Explorer
                     Topmost = true
                 };
                 splashScreen.Show();
-            }*/
+            }
         }
     }
 }
