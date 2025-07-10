@@ -10,7 +10,6 @@ namespace NBTMap_Explorer.Services.Contracts
 {
     public interface IMapLoader
     {
-        Task<MinecraftWorld?> LoadWorldAsync(string worldPath);
-        Task<IEnumerable<MinecraftWorld>> LoadAllWorldsAsync(MinecraftEdition edition);
+        Task<MinecraftMap[]> LoadMapsAsync(string worldPaths);
     }
 }
