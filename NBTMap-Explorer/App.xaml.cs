@@ -25,7 +25,7 @@ namespace NBTMap_Explorer
                 )
                 .CreateLogger();
 
-            Log.Information ("Application started at {Time}", DateTime.Now);
+            Log.Information("Application started sucessfully!");
 
             if (Debugger.IsAttached)
             {
