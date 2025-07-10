@@ -4,6 +4,7 @@ namespace NBTMap_Explorer.Services.Contracts
 {
     public interface IWorldLoader
     {
-        Task<MinecraftMap[]> LoadMapsAsync(string worldPaths);
+        Task<MinecraftWorld?> LoadWorldAsync(string worldPath);
+        Task<List<MinecraftWorld>> LoadAllWorldsAsync();
     }
 }
