@@ -1,5 +1,7 @@
 ﻿using NBTMap_Explorer.Helpers;
+using NBTMap_Explorer.Services;
 using NBTMap_Explorer.ViewModels;
+using Serilog;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows;
@@ -10,6 +12,8 @@ namespace NBTMap_Explorer.Views
 {
     public partial class BaseWindow : Window
     {
+        private static readonly ILogger _log = Log.ForContext<BaseWindow>();
+
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool GetCursorPos(out POINT lpPoint);
@@ -54,6 +58,10 @@ namespace NBTMap_Explorer.Views
 
         private void ConfigWindow()
         {
+            _log.Information("Configuring BaseWindow...");
+
+            SystemTheme.ApplyTheme(SystemTheme.GetSystemTheme());
+
             StateChanged += (s, e) =>
             {
                 if (DataContext is not null &&
@@ -62,6 +70,8 @@ namespace NBTMap_Explorer.Views
                     viewModel.WindowState = WindowState;
                 }
             };
+
+            _log.Information("BaseWindow configured successfully.");
         }
 
         protected override void OnSourceInitialized(EventArgs e)
