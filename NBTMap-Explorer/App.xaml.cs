@@ -36,11 +36,12 @@ namespace NBTMap_Explorer
             }
             else
             {
-                SplashScreen splashScreen = new SplashScreen
+                SplashScreen splashScreen = new()
                 {
                     WindowStartupLocation = WindowStartupLocation.CenterScreen,
                     Topmost = true
                 };
+
                 splashScreen.Show();
             }
         }

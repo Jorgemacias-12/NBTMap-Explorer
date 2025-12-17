@@ -146,6 +146,7 @@ namespace NBTMap_Explorer.Views
             string themeToApply = isPreseed ? "Dark" : "Light";
 
             SystemTheme.ApplyTheme(themeToApply);
+
         }
     }
 }
