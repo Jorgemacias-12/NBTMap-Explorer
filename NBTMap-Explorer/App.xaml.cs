@@ -1,8 +1,7 @@
 ﻿using Serilog;
-using NBTMap_Explorer.Views;
-using System.Diagnostics;
 using System.Windows;
 using SplashScreen = NBTMap_Explorer.Views.SplashScreen;
+using NBTMap_Explorer.Properties;
 
 namespace NBTMap_Explorer
 {
@@ -10,40 +9,25 @@ namespace NBTMap_Explorer
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            string outputTemplate = "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] <{SourceContext}> (T:{ThreadId}/P:{ProcessId}) {Message:lj}{NewLine}{Exception}";
-
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
                 .Enrich.FromLogContext()
                 .Enrich.WithThreadId()
                 .Enrich.WithProcessId()
-                .WriteTo.Console(outputTemplate: outputTemplate)
-                .WriteTo.Debug(outputTemplate: outputTemplate)
-                .WriteTo.File("logs/log-.txt",
-                  rollingInterval: RollingInterval.Day,
-                  outputTemplate: outputTemplate
+                .WriteTo.Console(outputTemplate: Settings.Default.SerilogStringTemplate)
+                .WriteTo.Debug(outputTemplate: Settings.Default.SerilogStringTemplate)
+                .WriteTo.File(
+                    Environment.SpecialFolder.LocalApplicationData.ToString(),
+                    rollingInterval: RollingInterval.Day,
+                    outputTemplate: Settings.Default.SerilogStringTemplate
                 )
                 .CreateLogger();
 
-            Log.Information("Application started sucessfully!");
+            var splashScreen = new SplashScreen();
 
-            if (Debugger.IsAttached)
-            {
-                BaseWindow baseWindow = new BaseWindow
-                {
-                };
-                baseWindow.Show();
-            }
-            else
-            {
-                SplashScreen splashScreen = new()
-                {
-                    WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                    Topmost = true
-                };
+            splashScreen.Show();
 
-                splashScreen.Show();
-            }
+            Log.Information("Application Starting");
         }
     }
 }
