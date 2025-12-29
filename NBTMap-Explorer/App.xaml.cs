@@ -26,7 +26,6 @@ namespace NBTMap_Explorer
             var splashScreen = new SplashScreen();
 
             splashScreen.Show();
-
             Log.Information("Application Starting");
         }
     }
