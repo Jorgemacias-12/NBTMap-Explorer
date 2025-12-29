@@ -46,5 +46,14 @@ namespace NBTMap_Explorer.Properties {
                 this["Theme"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SerilogStringTemplate {
+            get {
+                return ((string)(this["SerilogStringTemplate"]));
+            }
+        }
     }
 }
