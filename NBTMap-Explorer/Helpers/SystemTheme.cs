@@ -1,19 +1,16 @@
 ﻿using Microsoft.Win32;
 using NBTMap_Explorer.Properties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
-namespace NBTMap_Explorer.Helpers
+namespace NBTMap_Explorer
 {
     public class SystemTheme
     {
         private const string ThemeRegistryKeyPath = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";
         private const string ThemeRegistryValue = "AppsUseLightTheme";
         private static ResourceDictionary? _currentThemeDictionary;
+
+        public static string? Theme { get; private set; } = null;
 
         public static string GetSystemTheme()
         {
@@ -33,18 +30,20 @@ namespace NBTMap_Explorer.Helpers
             {
                 using (var key = Registry.CurrentUser.OpenSubKey(ThemeRegistryKeyPath))
                 {
-                    if (key?.GetValue(ThemeRegistryValue) is int registryValue)
-                    {
-                        return registryValue > 0 ? "Light" : "Dark";
-                    }
+                    bool isLightTheme =
+                        key?
+                        .GetValue(ThemeRegistryValue)
+                        is
+                        int registryValue
+                        && registryValue > 0;
+
+                    return isLightTheme ? "Light" : "Dark";
                 }
-            }
+            } 
             catch (Exception)
             {
                 return "Light";
             }
-
-            return "Light";
         }
 
         public static void ApplyTheme(string theme)
@@ -59,10 +58,50 @@ namespace NBTMap_Explorer.Helpers
 
             if (_currentThemeDictionary != null)
             {
-                Application.Current.Resources.MergedDictionaries.Remove(_currentThemeDictionary);
+                Application
+                    .Current
+                    .Resources
+                    .MergedDictionaries
+                    .Remove(_currentThemeDictionary);
             }
 
-            Application.Current.Resources.MergedDictionaries.Add(newTheme);
+            Application
+                .Current
+                .Resources
+                .MergedDictionaries
+                .Add(newTheme);
+
+            _currentThemeDictionary = newTheme;
+        }
+
+        public static void ApplyTheme()
+        {
+            if (string.IsNullOrEmpty(Theme)) return;
+
+
+            var themeName = $"Theme.{Theme}";
+            var themeUri = new Uri($"Resources/{themeName}.xaml", UriKind.Relative);
+
+            var newTheme = new ResourceDictionary
+            {
+                Source = themeUri
+            };
+
+            if (_currentThemeDictionary != null)
+            {
+                Application
+                    .Current
+                    .Resources
+                    .MergedDictionaries
+                    .Remove(_currentThemeDictionary);
+            }
+
+            Application
+                .Current
+                .Resources
+                .MergedDictionaries
+                .Add(newTheme);
+
             _currentThemeDictionary = newTheme;
         }
     }
