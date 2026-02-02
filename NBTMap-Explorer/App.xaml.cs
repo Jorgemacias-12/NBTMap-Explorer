@@ -1,12 +1,19 @@
 ﻿using Serilog;
 using System.Windows;
-using SplashScreen = NBTMap_Explorer.Views.SplashScreen;
 using NBTMap_Explorer.Properties;
+using System.IO;
+using SplashScreen = NBTMap_Explorer.Views.SplashScreen;
 
 namespace NBTMap_Explorer
 {
     public partial class App : Application
     {
+        private readonly string _logFilePath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            "NBTMap-Explorer",
+            "log-.txt"
+        );
+        
         protected override void OnStartup(StartupEventArgs e)
         {
             Log.Logger = new LoggerConfiguration()
@@ -17,16 +24,17 @@ namespace NBTMap_Explorer
                 .WriteTo.Console(outputTemplate: Settings.Default.SerilogStringTemplate)
                 .WriteTo.Debug(outputTemplate: Settings.Default.SerilogStringTemplate)
                 .WriteTo.File(
-                    Environment.SpecialFolder.LocalApplicationData.ToString(),
+                    _logFilePath,
                     rollingInterval: RollingInterval.Day,
                     outputTemplate: Settings.Default.SerilogStringTemplate
                 )
                 .CreateLogger();
 
+            Log.Information("Application Starting");
+
             var splashScreen = new SplashScreen();
 
             splashScreen.Show();
-            Log.Information("Application Starting");
         }
     }
 }
