@@ -49,7 +49,8 @@ namespace NBTMap_Explorer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] <{SourceContext}> (T:{Thread" +
+            "Id}/P:{ProcessId}) {Message:lj}{NewLine}{Exception}")]
         public string SerilogStringTemplate {
             get {
                 return ((string)(this["SerilogStringTemplate"]));

@@ -9,7 +9,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SerilogStringTemplate" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] &lt;{SourceContext}&gt; (T:{ThreadId}/P:{ProcessId}) {Message:lj}{NewLine}{Exception}</Value>
     </Setting>
   </Settings>
 </SettingsFile>

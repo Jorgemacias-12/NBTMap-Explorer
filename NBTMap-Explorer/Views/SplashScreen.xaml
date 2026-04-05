@@ -6,19 +6,19 @@
         xmlns:local="clr-namespace:NBTMap_Explorer.Views"
         xmlns:vm="clr-namespace:NBTMap_Explorer.ViewModels"
         mc:Ignorable="d"
-        Title="NBTMap Explorer - Cargando..."
+        Title="{Binding WindowTitle}"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         Width="1280"
         Height="720"
         ResizeMode="NoResize"
         FontFamily="Monocraft"
+        MouseDown="Window_MouseDown"
 >
 
     <Window.Background>
         <ImageBrush ImageSource="{DynamicResource SplashScreenImage}" TileMode="Tile" ViewportUnits="Absolute" Viewport="0, 0, 64, 64"/>
     </Window.Background>
-
 
     <Grid>
         <Grid.RowDefinitions>
@@ -28,23 +28,24 @@
 
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="55*"/>
+                <ColumnDefinition Width="7*"/>
                 <ColumnDefinition Width="40"/>
             </Grid.ColumnDefinitions>
 
-            <Button Click="Close_Click" Foreground="White" Grid.Column="1" Content="" Style="{StaticResource CloseButton}" ToolTip="Cerrar" />
+            <Button Click="Close_Click" Foreground="White" Grid.Column="2" Content="" Style="{StaticResource CloseButton}" ToolTip="{Binding CloseButtonCaption}" />
         </Grid>
 
         <Border Background="{DynamicResource BackgroundPrimaryBrush}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="450" Width="450" Grid.Row="1" CornerRadius="30" Padding="25,30,25,10">
             <Border.RenderTransform>
                 <TranslateTransform Y="-20"/>
             </Border.RenderTransform>
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,14,0,5">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,14,0,5" Cursor="">
                 <Image Source="/Assets/Icons/app-icon.png"
                Width="100" Height="100" Margin="0,0,0,17"/>
 
                 <TextBlock TextAlignment="Center" FontSize="33.18" Foreground="{DynamicResource TextPrimaryBrush}" FontWeight="Bold" Margin="0,0,0,3"><Run Text="NBTMap Explore"/><Run Language="es-mx" Text="r"/></TextBlock>
-                <TextBlock TextAlignment="Center" Text="Versión 0.0.1" FontSize="16" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,0, 0, 34"/>
+                <TextBlock TextAlignment="Center" Text="{Binding AppVersion}" FontSize="16" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,0, 0, 34"/>
 
                 <ProgressBar
                      Style="{StaticResource RoundedProgressBar}"
@@ -54,11 +55,10 @@
                      Foreground="#2ECC71"
                      Margin="0,0,0,7" />
 
-                <TextBlock  TextAlignment="Center" Text="0%" FontSize="16" Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,5,0,5"/>
-                <TextBlock  TextAlignment="Center" Text="Ready for exploration" FontSize="13.33" Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,0,0,30"/>
-                <TextBlock TextAlignment="Center" Text="© 2025 NBTMap Explorer" FontSize="13.33" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,20,0,10"/>
-                <TextBlock TextAlignment="Center" Text="Minecraft Map Exploration Tool" FontSize="13.33" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,0,0,5"/>
-                <Button Height="20" Click="Button_Click"/>
+                <TextBlock TextAlignment="Center" Text="0%" FontSize="16" Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,5,0,5" />
+                <TextBlock TextAlignment="Center" Text="Ready for exploration" FontSize="13.33" Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,0,0,30" />
+                <TextBlock TextAlignment="Center" Text="Minecraft Map Exploration Tool" FontSize="13.33" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,0,0,5" />
+                <TextBlock TextAlignment="Center" Text="{Binding Copyright}" FontSize="13.33" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,20,0,10" />
             </StackPanel>
         </Border>
     </Grid>

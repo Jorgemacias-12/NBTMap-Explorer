@@ -3,6 +3,7 @@ using System.Windows;
 using NBTMap_Explorer.Properties;
 using System.IO;
 using SplashScreen = NBTMap_Explorer.Views.SplashScreen;
+using NBTMap_Explorer.Views;
 
 namespace NBTMap_Explorer
 {
@@ -32,9 +33,12 @@ namespace NBTMap_Explorer
 
             Log.Information("Application Starting");
 
-            var splashScreen = new SplashScreen();
+            var mainWindow = new MainWindow();
 
-            splashScreen.Show();
+            mainWindow.Show();
+            //var splashScreen = new SplashScreen();
+
+            //splashScreen.Show();
         }
     }
 }

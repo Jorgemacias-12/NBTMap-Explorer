@@ -1,5 +1,6 @@
-﻿using NBTMap_Explorer.Helpers;
+﻿using NBTMap_Explorer.ViewModels;
 using System.Windows;
+using System.Windows.Input;
 
 namespace NBTMap_Explorer.Views
 {
@@ -11,6 +12,8 @@ namespace NBTMap_Explorer.Views
         public SplashScreen()
         {
             InitializeComponent();
+
+            DataContext = new SplashScreenViewModel();
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -18,15 +21,13 @@ namespace NBTMap_Explorer.Views
             Application.Current.Shutdown();
         }
 
-        bool isPreseed = false;
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            isPreseed = !isPreseed;
+            bool usesLeftButton = e.ChangedButton == MouseButton.Left;
 
-            string themeToApply = isPreseed ? "Dark" : "Light";
+            if (!usesLeftButton) return;
 
-            SystemTheme.ApplyTheme(themeToApply);
+            DragMove();
         }
     }
 }
